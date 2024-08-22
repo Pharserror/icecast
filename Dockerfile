@@ -3,7 +3,7 @@ LABEL maintainer "infiniteproject@gmail.com"
 
 RUN addgroup -S icecast && \
     adduser -S icecast
-    
+
 RUN apk add --update \
         icecast \
         mailcap && \

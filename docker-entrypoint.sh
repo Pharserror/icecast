@@ -27,5 +27,8 @@ fi
 if [ -n "$ICECAST_MAX_SOURCES" ]; then
     sed -i "s/<sources>[^<]*<\/sources>/<sources>$ICECAST_MAX_SOURCES<\/sources>/g" /etc/icecast.xml
 fi
+if [ -n "$SHOUTCAST_MOUNT" ]; then
+    sed -i "s/<shoutcast-mount>[^<]*<\/shoutcast-mount>/<shoutcast-mount>$SHOUTCAST_MOUNT<\/shoutcast-mount>/g" /etc/icecast.xml
+fi
 
 exec "$@"
