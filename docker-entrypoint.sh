@@ -33,8 +33,14 @@ fi
 
 sed -i \
     's#<header type="cors" name="Access-Control-Allow-Headers" />#<header name="Access-Control-Allow-Headers" value="Origin, Accept, X-Requested-With, Content-Type, If-Modified-Since, icy-metadata" />#' \
+    /etc/icecast.xml
+sed -i \
     's#<header type="cors" name="Access-Control-Allow-Origin" />#<header name="Access-Control-Allow-Origin" value="*" />#' \
+    /etc/icecast.xml
+sed -i \
     's#<header type="cors" name="Access-Control-Allow-Methods" />#<header name="Access-Control-Allow-Methods" value="GET, OPTIONS, HEAD" />#' \
+    /etc/icecast.xml
+sed -i \
     's#<header type="cors" name="Access-Control-Expose-Headers" />#<header name="Access-Control-Expose-Headers" value="Icy-MetaInt, Icy-Br, Icy-Description, Icy-Genre, Icy-Name, Ice-Audio-Info, Icy-Url, Icy-Sr, Icy-Vbr, Icy-Pub" />#' \
     /etc/icecast.xml
 
