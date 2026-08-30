@@ -31,4 +31,8 @@ if [ -n "$SHOUTCAST_MOUNT" ]; then
     sed -i "s/<shoutcast-mount>[^<]*<\/shoutcast-mount>/<shoutcast-mount>$SHOUTCAST_MOUNT<\/shoutcast-mount>/g" /etc/icecast.xml
 fi
 
+sed -i \
+    's#<header type="cors" name="Access-Control-Allow-Headers" />#<header type="cors" name="Access-Control-Allow-Headers" value="range, if-range, icy-metadata" />#' \
+    /etc/icecast.xml
+
 exec "$@"
