@@ -32,7 +32,7 @@ if [ -n "$SHOUTCAST_MOUNT" ]; then
 fi
 
 sed -i \
-    's#<header type="cors" name="Access-Control-Allow-Headers" />#<header type="cors" name="Access-Control-Allow-Headers" value="range, if-range, icy-metadata" />#' \
+    's#<header name="Access-Control-Allow-Headers" />#<header name="Access-Control-Allow-Headers" value="range, if-range, icy-metadata" />#' \
     /etc/icecast.xml
 
 exec "$@"
