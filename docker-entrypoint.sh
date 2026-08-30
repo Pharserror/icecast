@@ -32,7 +32,10 @@ if [ -n "$SHOUTCAST_MOUNT" ]; then
 fi
 
 sed -i \
-    's#<header name="Access-Control-Allow-Headers" />#<header name="Access-Control-Allow-Headers" value="range, if-range, icy-metadata" />#' \
+    's#<header type="cors" name="Access-Control-Allow-Headers" />#<header name="Access-Control-Allow-Headers" value="Origin, Accept, X-Requested-With, Content-Type, If-Modified-Since, icy-metadata" />#' \
+    's#<header type="cors" name="Access-Control-Allow-Origin" />#<header name="Access-Control-Allow-Origin" value="*" />#' \
+    's#<header type="cors" name="Access-Control-Allow-Methods" />#<header name="Access-Control-Allow-Methods" value="GET, OPTIONS, HEAD" />#' \
+    's#<header type="cors" name="Access-Control-Expose-Headers" />#<header name="Access-Control-Expose-Headers" value="Icy-MetaInt, Icy-Br, Icy-Description, Icy-Genre, Icy-Name, Ice-Audio-Info, Icy-Url, Icy-Sr, Icy-Vbr, Icy-Pub" />#' \
     /etc/icecast.xml
 
 exec "$@"
